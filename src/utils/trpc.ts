@@ -45,20 +45,16 @@ export interface SSRContext extends NextPageContext {
  * @link https://trpc.io/docs/react#3-create-trpc-hooks
  */
 export const trpc = createTRPCNext<AppRouter, SSRContext>({
-   // Without transformer set on legacy router,
-   // config throws type error: 
-   // Types of property 'transformer' are incompatible.
-   // Type 'typeof SuperJSON' is not assignable to type '"You must set a transformer on the backend router"'.
+  // Without transformer set on legacy router,
+  // config throws type error:
+  // Types of property 'transformer' are incompatible.
+  // Type 'typeof SuperJSON' is not assignable to type '"You must set a transformer on the backend router"'.
   config({ ctx }) {
     /**
      * If you want to use SSR, you need to use the server's full URL
      * @link https://trpc.io/docs/ssr
      */
     return {
-      /**
-       * @link https://trpc.io/docs/data-transformers
-       */
-      transformer,
       /**
        * @link https://trpc.io/docs/client/links
        */
